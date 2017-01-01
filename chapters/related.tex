@@ -1,0 +1,52 @@
+\chapter{XXX以及YYY的相关知识}
+\section{Navier-Stokes方程}
+
+本章的主要内容是介绍论文使用的相关技术，篇幅不易过多。
+
+上述假设是使用N-S方程必须满足的条件，通常N-S方程需要用下面的方程式来描述\cite{02}：
+
+\begin{equation} \label{eq:1}
+\frac{\partial \vec u}{\partial t} = - \vec u \cdot \nabla \vec u - \frac{1}{\rho}\nabla p +\nu \nabla \cdot \nabla \vec u  + F
+\end{equation}
+\begin{equation} \label{eq:2}
+\nabla \cdot \vec u = 0
+\end{equation}
+
+其中，$\vec{u}$用来表示流体运动的速度场，${t}$代表时间。希腊字母$\rho$代表流体的密度，对于水来说通常是$1000kg/m^{3}$，对于空气来说通常是$1.3kg/m^{3}$。$p$ 代表压力，是施加在流体上的单位面积上的力。希腊字母$\nu$ 为运动粘性系数(kinematic viscosity)，又称为动量扩散率，粘度通常表示一种阻碍物体流动的属性，不同的流体具有不同的粘度，例如糖浆具有高粘度，而酒精具有低粘度。$F$指得是作用在流体上的任何外力\cite{03}。方程(\ref{eq:1})是流体的动量守恒方程，方程(\ref{eq:2})是流体的不可压缩方程。
+
+符号$\nabla$称为微分运算符(nabla operator)，主要应用在梯度(gradient)、散度(divergence)、普拉斯算子(Laplacian operators)中,如表\ref{tab:1}所示。
+
+\renewcommand\arraystretch{2.5}
+\begin{table}[htbp]
+\centering
+\caption{微分运算符在XXX中的应用} \label{tab:1}
+\begin{tabular}{|l|c|c|}
+
+    \hline
+    操作 & 定义 & 有限微分形式 \\
+    \hline
+    梯度 & $ \displaystyle \nabla p = \Bigl( \frac{\partial p}{\partial x} , \frac{\partial p}{\partial y} \Bigr)$ & $\displaystyle \frac{p_{i+1,j} - p_{i-1,j}}{2\delta x} , \frac{p_{i,j+1} - p_{i,j-1}}{2\delta y}$ \\
+    \hline
+    散度 & $ \displaystyle \nabla \cdot u  =  \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} $ & $ \displaystyle \frac{u_{i+1,j} - u_{i-1,j}}{2\delta x} + \frac{v_{i,j+1} - v_{i,j-1}}{2\delta y}$ \\
+    \hline
+    普拉斯算子 & $ \displaystyle \nabla^2 p =  \frac{\partial^2 p}{\partial x^2} + \frac{\partial^2 p}{\partial y^2}$ & $ \displaystyle \frac{p_{i+1,j}  - 2p_{i,j} + p_{i-1,j}}{(\delta x)^2} + \frac{p_{i,j+1}  - 2p_{i,j} + p_{i,j-1}}{(\delta y)^2}$ \\
+    \hline
+\end{tabular}
+\end{table}
+
+梯度，标量场的梯度是一个向量场。散度，出现在方程(\ref{eq:2})，是求解N-S方程的关键，通过流体的不可压缩方程我们知道每个时间片结束的时候速度的散度为0。散度是向量场的一种强度性质，散度描述的是向量场里一个点是汇聚点还是发散点。普拉斯算子实际上就是$\delta^2 = \delta \cdot \delta$,定义为梯度的散度。
+
+对于方程(\ref{eq:1}),从左到右依次是，平流项($- \vec u \cdot \nabla \vec u$)，压力项($- \frac{1}{\rho}\nabla p$),扩散项($\nu \nabla \cdot \nabla \vec u$)和外力项($F$)。接下来介绍这四项的含义\cite{04}：
+\begin{enumerate}
+\item 平流项：流体的平流项指的是流体沿着自身速度的方向传递物体、密度或其他量。例如把墨水倒入流动的液体中，墨水会沿着液体的速度场进行传送。并且，流体的速度也携带流体自身。因此方程(\ref{eq:1})中的$- \vec u \cdot \nabla \vec u$表示速度场本身的平流，被称为平流项。
+\item 压力项：因为流体中的分子可以相互运动，所以分子之间会产生``挤压''和``碰撞''。当外力作用到流体上的时候，它并不会直接传导到整个流体空间，而是通过分子之间的相互作用，离外力近的分子把那些离外力远的分子推开，这样压力就慢慢作用到整个流体上。因为压力是单位面积上的力，流体中的任何压力都会产生加速度。方程的第二项成为压力项，就是代表这个加速度。
+\item 扩散项：通过日常情境下对流体的观察可以发现，每一种流体都有着不一样的粘度。例如，蜂蜜的流动就比酒精要慢很多，一般越浓稠的液体粘度越高。粘度一般指在流体运动中所受到的阻力影响，从而导致动量的四处扩散，因此引起了速度的扩散，所以第三项是扩散项。
+\item 外力项：外力指的是流体受到外力作用产生的加速度。外力可以是局部的，也可以是整体的。例如重力和浮力都是针对整个流体施加的，而电吹风只能施加到流体的一部分，是属于局部力的范畴。
+\end{enumerate}
+
+我留了一个方程和图表供大家参考，如何正确的使用Latex书写方程和表格，希望大家都喜欢上这种书写方式。
+
+
+\section{本章小结}
+
+除了绪论，每章的最后一节都必须有本章小结，这是学校的规定。

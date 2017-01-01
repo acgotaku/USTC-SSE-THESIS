@@ -1,0 +1,69 @@
+%!TEX encoding = UTF-8 Unicode
+%!TEX program = xelatex
+
+\documentclass[master,pagecenter]{ustcthesis}
+% bachelor|master|doctor
+\usepackage{ustcextra}
+\graphicspath{{figures/}}
+% \bibliographystyle{ustcauthorybbear}
+\bibliographystyle{ustcnumerical}
+\citestyle{ustcnumerical}
+\title{老年猕猴视皮层细胞 \texorpdfstring{\\ 的功能衰退}{}}
+\author{柴泉}
+\major{软件工程}
+\advisor{孙建伶\ 教授}
+\coadvisor{刘耀庭\ 教授}
+\submitdate{二〇一六年八月七日}
+%\secrettext{机密\quad 小于等于20年}   % 内部|秘密|机密，注释本行则不保密
+% \depart{一二三系}
+
+\entitle{The Function Degradation in Visual Cortical Cells of old rhesus Monkeys}
+\enauthor{Chai Quan}
+\enmajor{Software Engineering}
+\enadvisor{Prof. JianLin Sun}
+\encoadvisor{Prof. YaoTing Liu}
+\ensubmitdate{August 7th, 2016}
+%\ensecrettext{Confidential\quad Less than or equal to 20 years}  % Internal|Secret|Confidential
+
+\begin{document}
+\maketitle
+
+%
+% 本科论文:
+%   frontmatter: 致谢、目录、中文摘要、英文摘要
+%   mainmatter: 正文章节、参考文献
+%   appendix: 附录
+%
+% 硕博论文:
+%   frontmatter: 中文摘要、英文摘要、目录、符号说明
+%   mainmatter: 正文、参考文献
+%   appendix: 附录
+%   backmatter: 致谢、发表论文
+%
+
+\frontmatter{}
+\input{chapters/abstract}
+\tableofcontents
+\listoffigures
+\listoftables
+% \listofalgorithms  % 算法索引，如不需要，可直接注释掉本行
+% \input{chapters/notation}
+
+\mainmatter
+\input{chapters/intro}
+\input{chapters/related}
+\input{chapters/requirement}
+\input{chapters/outline}
+\input{chapters/implement}
+\input{chapters/evaluation}
+\input{chapters/summary}
+\input{chapters/biblio}
+\appendix
+
+
+\backmatter
+\input{chapters/acknowledgements}
+\input{chapters/advice}
+% \input{chapters/publications}
+
+\end{document}
