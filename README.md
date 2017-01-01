@@ -29,5 +29,5 @@
 
 
 ## 参考规范：
-* [《中国科学技术大学研究生学位论文撰写规范》](http://gradschool.ustc.edu.cn/ylb/material/xw/wdxz/30.doc)
+* [《中国科学技术大学工程硕士论文撰写规范》](http://gradschool.ustc.edu.cn/ylb/material/xw/wdxz/30.doc)
 * [ustcthesis](https://github.com/ustctug/ustcthesis)
